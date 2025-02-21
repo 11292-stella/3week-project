@@ -62,10 +62,8 @@ console.log(me)
 /* ESERCIZIO 1
   Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
 */
-const dice = 7
-const random1 = Math.floor(Math.random() * (dice + 1))
-for (let i = 0; i < random1; i++) {
-  console.log(i)
+const dice = function () {
+  return Math.floor(Math.random() * 6) + 1
 }
 
 /* ESERCIZIO 2
@@ -133,6 +131,25 @@ console.log(isThisAnEmail(`stella.marucelli`))
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
 
+const whatDayIsIt = function () {
+  const today = new Date()
+  const day = today.getDay()
+  const dayOfw = [
+    ``,
+
+    `lunedi`,
+    `martedi`,
+    `mercoledi`,
+    `giovedi`,
+    `venerdi`,
+    `sabato`,
+    `domenica`,
+  ]
+  return dayOfw[day]
+}
+
+console.log(whatDayIsIt())
+
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
   Deve invocare la precedente funzione dice() il numero di volte specificato nel parametro, e deve tornare un oggetto contenente una proprietà "sum":
@@ -145,6 +162,17 @@ console.log(isThisAnEmail(`stella.marucelli`))
       values: [3, 3, 4]
   }
 */
+const rollTheDices = function (n) {
+  let sum = 0
+  let values = []
+  for (let i = 0; i < n; i++) {
+    const roll = dice()
+    sum += roll
+    values.push(roll)
+  }
+  return sum, values
+}
+console.log(rollTheDices(5))
 
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
