@@ -353,6 +353,16 @@ console.log(newestMovie(movies))
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
+const countMovies = function (movies) {
+  let howManyFilms = 0
+  for (let i = 0; i < movies.length; i++) {
+    howManyFilms++
+  }
+
+  return howManyFilms
+}
+
+console.log(countMovies(movies))
 
 /* ESERCIZIO 14
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
